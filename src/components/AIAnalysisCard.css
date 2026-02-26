@@ -1,0 +1,524 @@
+.ai-analysis-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-analysis-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 20px 20px 0 0;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-icon {
+  font-size: 32px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a202c;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.card-header h3 .ai-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.card-header h3 .analysis-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.risk-tag {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 2px solid;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #a0aec0;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #f7fafc;
+  color: #718096;
+}
+
+/* 情感核心指标 */
+.sentiment-core {
+  margin-bottom: 24px;
+}
+
+.sentiment-display {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.sentiment-emoji {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.emoji-large {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.sentiment-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.sentiment-desc {
+  margin: 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* 情感能量条 */
+.emotion-energy {
+  margin-bottom: 24px;
+}
+
+.energy-bar {
+  height: 40px;
+  background: rgba(226, 232, 240, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.energy-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.8s ease-out;
+}
+
+.energy-fill.positive {
+  background: linear-gradient(90deg, #51cf66, #2f9e44);
+  color: white;
+  font-weight: 600;
+}
+
+.energy-fill.negative {
+  background: linear-gradient(90deg, #ff6b6b, #c92a2a);
+  color: white;
+  font-weight: 600;
+}
+
+.energy-fill span {
+  padding: 0 12px;
+  font-size: 0.875rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.energy-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+/* 情感得分 */
+.emotion-score {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 16px;
+}
+
+.score-circle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.score-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 2.8;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: #667eea;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1s ease-out;
+}
+
+.score-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.score-info {
+  flex: 1;
+}
+
+.score-label {
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+.score-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #a0aec0;
+}
+
+.score-description {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(248, 249, 250, 0.8);
+}
+
+.range-negative {
+  color: #ff6b6b;
+  font-weight: 500;
+}
+
+.range-neutral {
+  color: #ff922b;
+  font-weight: 500;
+}
+
+.range-positive {
+  color: #51cf66;
+  font-weight: 500;
+}
+
+/* 关键词分析 */
+.keywords-section {
+  margin-bottom: 24px;
+}
+
+.keywords-section h4 {
+  margin: 0 0 12px 0;
+  color: #4a5568;
+}
+
+.keywords-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.keyword-tag {
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+.keyword-tag:hover {
+  transform: translateY(-2px);
+}
+
+/* 建议区域 */
+.suggestions-section {
+  margin-bottom: 24px;
+}
+
+.suggestions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.suggestions-header h4 {
+  margin: 0;
+  color: #4a5568;
+}
+
+.suggestions-count {
+  background: #667eea;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.suggestions-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.suggestion-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.suggestion-number {
+  background: #667eea;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.suggestion-card p {
+  margin: 0;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* 应急信息 */
+.emergency-section {
+  background: linear-gradient(135deg, #fff5f5, #fff);
+  border: 2px solid #fed7d7;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  animation: pulseWarning 2s infinite;
+}
+
+@keyframes pulseWarning {
+  0%, 100% { border-color: #fed7d7; }
+  50% { border-color: #fc8181; }
+}
+
+.emergency-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.emergency-icon {
+  font-size: 24px;
+}
+
+.emergency-header h4 {
+  margin: 0;
+  color: #c53030;
+}
+
+.emergency-content p {
+  margin: 0 0 16px 0;
+  color: #742a2a;
+  font-weight: 500;
+}
+
+.emergency-hotlines {
+  display: grid;
+  gap: 12px;
+}
+
+.hotline {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #fed7d7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hotline span {
+  color: #742a2a;
+}
+
+.hotline strong {
+  color: #c53030;
+  font-size: 1.1rem;
+}
+
+/* 分析来源 */
+.analysis-source {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.source-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.source-icon {
+  font-size: 1.2rem;
+}
+
+.source-text {
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.fallback-badge {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* 加载状态 */
+.ai-analysis-card.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.loading-spinner {
+  text-align: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(102, 126, 234, 0.2);
+  border-radius: 50%;
+  border-top-color: #667eea;
+  margin: 0 auto 16px;
+  animation: spin 1s linear infinite;
+}
+
+.spinner-text {
+  color: #667eea;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,10 @@
+{
+  "build": {
+    "outputDirectory": "dist",
+    "env": {
+      "VITE_API_URL": "https://xinxi-town-production.up.railway.app/api",
+      "VITE_NODE_ENV": "production",
+      "VITE_DEBUG": "false"
+    }
+  }
+}

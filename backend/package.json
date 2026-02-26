@@ -1,0 +1,53 @@
+{
+  "name": "xinxi-town-backend",
+  "version": "1.0.0",
+  "description": "心栖小镇后端服务 - 学生心理健康支持平台",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node seeds/seed.js",
+    "test": "node node_modules/jest/bin/jest.js",
+    "test:watch": "node node_modules/jest/bin/jest.js --watch",
+    "test:coverage": "node node_modules/jest/bin/jest.js --coverage"
+  },
+  "keywords": [
+    "心理健康",
+    "学生",
+    "AI",
+    "树洞",
+    "正念"
+  ],
+  "author": "心栖小镇团队",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "morgan": "^1.10.0",
+    "openai": "^6.17.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
+    "babel-jest": "^30.2.0",
+    "happy-dom": "^20.6.1",
+    "jest": "^30.2.0",
+    "jsdom": "^28.0.0",
+    "mongodb-memory-server": "^11.0.1",
+    "nodemon": "^3.0.1",
+    "supertest": "^7.2.2",
+    "vitest": "^4.0.18"
+  }
+}

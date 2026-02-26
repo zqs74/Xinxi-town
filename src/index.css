@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ������ʽ */
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-morandi-blue/20 to-morandi-green/20;
+    @apply font-sans text-gray-800;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-handwriting font-bold;
+  }
+
+  /* ���������� */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-morandi-blue/20 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-morandi-purple/50 rounded-full hover:bg-morandi-purple/70;
+  }
+}
+
+/* �����ʽ */
+@layer components {
+  /* С��Ƭ */
+  .town-card {
+    @apply bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg;
+    @apply p-6 border border-white/40;
+    @apply transition-all duration-300 hover:shadow-xl hover:scale-[1.02];
+  }
+
+  /* ����ֽ�� */
+  .emotion-paper {
+    @apply rounded-2xl p-4 transition-all duration-300;
+    @apply shadow-md hover:shadow-lg;
+  }
+
+  .emotion-blue {
+    @apply bg-gradient-to-r from-emotion-blue/20 to-emotion-blue/40;
+    @apply border-l-4 border-emotion-blue;
+  }
+
+  .emotion-yellow {
+    @apply bg-gradient-to-r from-emotion-yellow/20 to-emotion-yellow/40;
+    @apply border-l-4 border-emotion-yellow;
+  }
+
+  .emotion-red {
+    @apply bg-gradient-to-r from-emotion-red/20 to-emotion-red/40;
+    @apply border-l-4 border-emotion-red;
+    @apply animate-pulse-slow;
+  }
+
+  /* ��ť��ʽ */
+  .btn-primary {
+    @apply bg-gradient-to-r from-morandi-purple to-morandi-blue;
+    @apply text-white font-semibold py-3 px-6 rounded-2xl;
+    @apply shadow-lg hover:shadow-xl transform hover:scale-105;
+    @apply transition-all duration-300 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-white/80 backdrop-blur-sm;
+    @apply text-morandi-purple font-semibold py-3 px-6 rounded-2xl;
+    @apply border-2 border-morandi-purple/30;
+    @apply shadow-md hover:shadow-lg transform hover:scale-105;
+    @apply transition-all duration-300 active:scale-95;
+  }
+
+  /* �������ʽ */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-2xl border-2;
+    @apply border-morandi-blue/30 bg-white/70;
+    @apply focus:outline-none focus:border-morandi-purple;
+    @apply focus:ring-2 focus:ring-morandi-purple/20;
+    @apply placeholder:text-gray-400 transition-all duration-300;
+  }
+
+  /* ������ */
+  .nav-item {
+    @apply px-4 py-2 rounded-xl transition-all duration-300;
+    @apply hover:bg-morandi-blue/30 hover:text-morandi-purple;
+  }
+
+  .nav-item.active {
+    @apply bg-gradient-to-r from-morandi-purple/20 to-morandi-blue/20;
+    @apply text-morandi-purple font-semibold;
+  }
+
+  /* ���ض��� */
+  .loading-mole {
+    @apply animate-bounce text-4xl;
+  }
+
+  .loading-bird {
+    @apply animate-float text-4xl;
+  }
+}
+
+/* ������ */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .page-transition {
+    @apply transition-all duration-500;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+  }
+}
+
+/* �Զ��嶯�� */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ����װ�� */
+.town-bg::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(168, 216, 234, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(170, 150, 218, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 50% 50%, rgba(199, 240, 219, 0.1) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: -1;
+}
