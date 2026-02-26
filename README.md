@@ -56,11 +56,19 @@
 
 ## 运行项目
 
+### 本地开发
 1. 安装依赖：`npm install`（前端）和 `cd backend && npm install`（后端）
 2. 启动MongoDB服务
 3. 启动后端服务：`cd backend && npm run dev`
 4. 启动前端服务：`npm run dev`
 5. 访问前端应用：http://localhost:5173
+
+### GitHub Pages部署
+1. 确保代码已推送到GitHub的main分支
+2. 登录GitHub，进入仓库设置
+3. 进入"Pages"设置，选择main分支的/build目录作为部署源
+4. 等待自动部署完成
+5. 访问部署后的网站：https://zqs74.github.io/Xinxi-town/
 
 ## 项目特点
 
