@@ -7,6 +7,16 @@ export default defineConfig({
   base: './',
   build: {
     outDir: 'build',
-    chunkSizeWarningLimit: 1500 // 调整 chunk size 警告阈值
+    chunkSizeWarningLimit: 2000, // 进一步调整 chunk size 警告阈值
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': ['react', 'react-dom'],
+          'charts': ['chart.js', 'recharts'],
+          'motion': ['framer-motion'],
+          'pdf': ['jspdf', 'html2canvas']
+        }
+      }
+    }
   }
 })
